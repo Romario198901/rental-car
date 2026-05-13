@@ -6,7 +6,7 @@ export async function GET() {
   try {
     const api = await getServerApi();
 
-    const res = await api.get('/brands');
+    const res = await api.get('/cars/filters');
 
     return NextResponse.json(res.data, { status: res.status });
   } catch (error) {

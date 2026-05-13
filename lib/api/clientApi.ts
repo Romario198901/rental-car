@@ -1,6 +1,7 @@
 import { Car } from '@/types/car';
 import { clientApi } from './api';
 import { Order } from '@/types/order';
+import { Filter } from '@/types/filter';
 
 interface AxiosCarResponse {
   cars: Car[];
@@ -9,7 +10,7 @@ interface AxiosCarResponse {
   totalPages: number;
 }
 
-type Brands = string[];
+
 
 export const getAllCars = async (
   brand = '',
@@ -36,12 +37,18 @@ export const getCarById = async (carId: string): Promise<Car> => {
   return data;
 };
 
-export const getAllBrands = async (): Promise<Brands> => {
-  const { data } = await clientApi.get<Brands>('/brands');
+export const getAllFilters = async(): Promise<Filter> => {
+  const {data} = await clientApi.get<Filter>('/cars/filters');
+  return data;
+}
+
+export const createOrder = async (
+  carId: string,
+  order: Order
+): Promise<Order> => {
+  const { data } = await clientApi.post<Order>(
+    `/cars/${carId}/booking-requests`,
+    order
+  );
   return data;
 };
-
-// export const createOrder = async(order: Order): Promise<Order> => {
-// const {data} = await clientApi.post<Order>('/orders', order);
-// return data;
-// }

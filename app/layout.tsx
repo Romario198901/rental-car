@@ -3,6 +3,7 @@ import { Inter, Manrope } from 'next/font/google';
 import './globals.css';
 import TanstackProvider from '@/components/common/TanStackProvider';
 import ToasterProvider from '@/components/common/ToasterProvider';
+import Header from '@/components/common/Header/Header';
 
 export const metadata: Metadata = {
   title: 'RentalCar',
@@ -30,7 +31,8 @@ export default function RootLayout({
       <body className={`${inter.variable} ${manrope.variable}`}>
         <TanstackProvider>
           <ToasterProvider />
-          {children}
+          <Header />
+          <main>{children}</main>
         </TanstackProvider>
       </body>
     </html>

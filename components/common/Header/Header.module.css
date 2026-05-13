@@ -1,0 +1,30 @@
+.header {
+  border-bottom: 1px solid var(--color-crema);
+  max-width: 1440px;
+  background-color: var(--color-crema);
+}
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  display: block;
+  padding: 24px 0;
+}
+.headerNav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.navLink {
+  display: block;
+  padding: 24px 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+}
+.active {
+  color: var(--color-blue);
+}
