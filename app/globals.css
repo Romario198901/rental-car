@@ -12,6 +12,7 @@ canvas,
 svg {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 button {
@@ -59,7 +60,7 @@ p {
   --color-crema: #f2f4f7;
   --color-lightgrey: #dadde1;
   --color-lightblue: #3470ff;
-  --color-gray: #8e929a;
+  --color-gray: #8d929a;
   --color-blue: #0b44cd;
   --color-black: #101828;
   --app-background: var(--color-white);

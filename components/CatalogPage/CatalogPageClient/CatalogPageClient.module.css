@@ -1,0 +1,31 @@
+.catalog {
+  max-width: 1440px;
+  padding-top: 84px;
+  padding-bottom: 124px;
+}
+.loadmoreBtn {
+  display: block;
+  margin: 0 auto;
+  border: 1px solid var(--color-lightblue);
+  border-radius: 12px;
+  padding: 12px;
+  height: 44px;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
+  transition: border-color 250ms ease-in-out;
+}
+.loadmoreBtn:hover,
+.loadmoreBtn:focus,
+.loadmoreBtn:active {
+  border-color: var(--color-blue);
+}
+.emptyMessage {
+  margin: 0 auto;
+   font-size: 14px;
+  line-height: 1.33333;
+  color: var(--color-gray);
+  text-align: center;
+}

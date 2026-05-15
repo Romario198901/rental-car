@@ -4,19 +4,25 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
   try {
-    const brand = request.nextUrl.searchParams.get('brand') ?? '';
+    const brand = request.nextUrl.searchParams.get('brand');
+
     const page = Number(request.nextUrl.searchParams.get('page') ?? 1);
-    const rentalPrice = request.nextUrl.searchParams.get('rentalPrice') ?? '';
-    const minMileage = request.nextUrl.searchParams.get('minMileage') ?? '';
-    const maxMileage = request.nextUrl.searchParams.get('maxMileage') ?? '';
+    const perPage = Number(request.nextUrl.searchParams.get('perPage') ?? 10);
+    const priceParam = request.nextUrl.searchParams.get('price');
+    const price = priceParam ? Number(priceParam) : undefined;
+    const minMileageParam = request.nextUrl.searchParams.get('minMileage');
+    const minMileage = minMileageParam ? Number(minMileageParam) : undefined;
+    const maxMileageParam = request.nextUrl.searchParams.get('maxMileage');
+    const maxMileage = minMileageParam ? Number(maxMileageParam) : undefined;
 
     const api = await getServerApi();
 
     const res = await api.get('/cars', {
       params: {
         page,
+        perPage,
         brand,
-        rentalPrice,
+        price,
         minMileage,
         maxMileage,
       },

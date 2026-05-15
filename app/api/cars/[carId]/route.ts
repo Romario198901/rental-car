@@ -2,17 +2,16 @@ import { NextResponse } from 'next/server';
 import { isAxiosError } from 'axios';
 import { getServerApi } from '@/lib/api/serverApi';
 
-
 export type Props = {
   params: Promise<{ carId: string }>;
 };
 
-export async function GET( { params }: Props) {
+export async function GET({ params }: Props) {
   try {
     const { carId } = await params;
     const api = await getServerApi();
 
-    const res = await api(`api/diaries/${carId}`);
+    const res = await api(`/cars/${carId}`);
     return NextResponse.json(res.data, { status: res.status });
   } catch (error) {
     if (isAxiosError(error)) {
