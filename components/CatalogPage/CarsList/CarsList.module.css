@@ -6,7 +6,7 @@
   margin-bottom: 80px;
 }
 .card {
-  width: calc((100% - 96px) / 4);
+  width: 100%;
   display: flex;
   flex-direction: column;
   min-height: 424px;
@@ -85,4 +85,15 @@
 .link:focus,
 link:active {
   background-color: var(--color-blue);
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    width: calc((100% - 32px) / 2);
+  }
+}
+@media screen and (min-width: 1200px) {
+  .card {
+    width: calc((100% - 96px) / 4);
+  }
 }

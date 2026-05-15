@@ -1,0 +1,53 @@
+.carDetails {
+  padding-top: 20px;
+  padding-bottom: 44px;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 1 fr;
+  row-gap: 40px;
+  grid-template-areas:
+    'image'
+    'image'
+    'descr'
+    'descr'
+    'descr'
+    'descr'
+    'book'
+    'book';
+}
+.image {
+  width: 100%;
+  grid-area: image;
+  border-radius: 19px;
+}
+.description {
+  grid-area: descr;
+}
+.booking {
+  grid-area: book;
+}
+@media screen and (min-width: 768px) {
+  .carDetails {
+    padding-top: 50px;
+    padding-bottom: 64px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .carDetails {
+    width: 1440px;
+    margin: 0 auto;
+    padding-top: 84px;
+    padding-bottom: 104px;
+  }
+  .wrapper {
+    grid-template-columns: 640px 1 fr;
+    row-gap: 0;
+    column-gap: 72px;
+    grid-template-areas:
+      'image descr'
+      'image descr'
+      'book descr'
+      'book descr';
+  }
+}

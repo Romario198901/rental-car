@@ -44,10 +44,20 @@ p {
 .container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 15px;
-  max-width: 1200px;
+  padding: 0 20px;
+  max-width: 375px;
 }
-
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    padding: 0 15px;
+    max-width: 1200px;
+  }
+}
 :root {
   --inter-font: 'Lato', sans-serif;
   --manrope-font: 'Comfortaa', sans-serif;

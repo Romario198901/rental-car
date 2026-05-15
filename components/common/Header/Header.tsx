@@ -4,8 +4,12 @@ import css from './Header.module.css';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
+import { CiMenuBurger } from 'react-icons/ci';
+import MobileMenu from '../MobileMenu/MobileMenu';
+import { useState } from 'react';
 
 export default function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   return (
     <header className={css.header}>
@@ -37,8 +41,18 @@ export default function Header() {
               Catalog
             </Link>
           </nav>
+          <button
+            type="button"
+            className={css.menu}
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <CiMenuBurger size={24} className={css.icon} />
+          </button>
         </div>
       </div>
+      {mobileMenuOpen && (
+        <MobileMenu onClose={() => setMobileMenuOpen(false)} />
+      )}
     </header>
   );
 }

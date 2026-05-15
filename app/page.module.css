@@ -1,5 +1,4 @@
 .heroSection {
-  max-width: 1440px;
   height: 100vh;
   display: flex;
   align-items: flex-end;
@@ -13,6 +12,12 @@
 @media screen and (min-resolution: 192dpi) {
   .heroSection {
     background-image: url('/HeroBackGround@2x.jpg');
+  }
+}
+@media screen and (min-width: 1200px) {
+  .heroSection {
+    width: 1440px;
+    margin: 0 auto;
   }
 }
 .heroContrainer {
@@ -38,7 +43,7 @@
 .link {
   display: block;
   border-radius: 12px;
-  padding: 12px 99px;
+  padding: 12px;
   height: 44px;
   background-color: var(--color-lightblue);
   font-weight: 600;

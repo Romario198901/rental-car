@@ -6,12 +6,12 @@ export type Props = {
   params: Promise<{ carId: string }>;
 };
 
-export async function GET({ params }: Props) {
+export async function GET(request: Request, { params }: Props) {
   try {
     const { carId } = await params;
     const api = await getServerApi();
 
-    const res = await api(`/cars/${carId}`);
+    const res = await api.get(`/cars/${carId}`);
     return NextResponse.json(res.data, { status: res.status });
   } catch (error) {
     if (isAxiosError(error)) {

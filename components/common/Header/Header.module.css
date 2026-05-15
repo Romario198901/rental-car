@@ -1,6 +1,5 @@
 .header {
   border-bottom: 1px solid var(--color-crema);
-  max-width: 1440px;
   background-color: var(--color-crema);
 }
 .headerContainer {
@@ -13,23 +12,43 @@
   padding: 24px 0;
 }
 .headerNav {
-  display: flex;
-  align-items: center;
-  gap: 32px;
+  display: none;
 }
-.navLink {
+.menu {
   display: block;
-  padding: 24px 0;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.25;
-  text-align: center;
-  transition: color 250ms ease-in-out;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
 }
-.navLink:hover,
-.navLink:focus {
-  color: var(--color-blue);
-}
-.active {
-  color: var(--color-blue);
+@media screen and (min-width: 1200px) {
+  .header {
+    width: 1440px;
+    margin: 0 auto;
+  }
+  .headerNav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .navLink {
+    display: block;
+    padding: 24px 0;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    text-align: center;
+    transition: color 250ms ease-in-out;
+  }
+  .navLink:hover,
+  .navLink:focus {
+    color: var(--color-blue);
+  }
+  .active {
+    color: var(--color-blue);
+  }
+  .menu {
+    display: none;
+  }
 }

@@ -15,7 +15,7 @@ export default function CarsList({ cars }: CarsListProps) {
       {cars.map(car => (
         <li key={car.id} className={css.card}>
           <div className={css.imageWrapper}>
-            <AiOutlineHeart width={16} height={16} className={css.icon} />
+            <AiOutlineHeart size={16} className={css.icon} />
             <Image
               width={276}
               height={268}
@@ -44,7 +44,9 @@ export default function CarsList({ cars }: CarsListProps) {
               <span className={css.location}>{car.mileage}</span>
             </p>
           </div>
-          <Link href={`/cars/${car.id}`} className={css.link}>Read more</Link>
+          <Link href={`/catalog/${car.id}`} className={css.link} target="blank">
+            Read more
+          </Link>
         </li>
       ))}
     </ul>

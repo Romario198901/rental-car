@@ -1,0 +1,106 @@
+.formWrapper {
+  border: 1px solid var(--color-lightgrey);
+  border-radius: 10px;
+  padding: 32px;
+  min-height: 488px;
+}
+.formTitle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.formSup {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--color-gray);
+  margin-bottom: 24px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.input,
+.textarea {
+  border: none;
+  outline: none;
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  padding: 12px 20px;
+  height: 48px;
+  background-color: var(--color-crema);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--color-gray);
+}
+.textarea {
+  resize: none;
+  margin-bottom: 24px;
+}
+
+.formWrapper :global(.react-datepicker) {
+  font-family: var(--inter-font);
+  font-size: 14px;
+  border: 1px solid var(--color-lightblue);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.formWrapper :global(.react-datepicker__header) {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-lightblue);
+}
+
+.formWrapper :global(.react-datepicker__current-month) {
+  font-family: var(--inter-font);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+.formWrapper :global(.react-datepicker__day-name),
+.formWrapper :global(.react-datepicker__day) {
+  font-family: var(--inter-font);
+  font-size: 14px;
+}
+
+.formWrapper :global(.react-datepicker__day--selected),
+.formWrapper :global(.react-datepicker__day--keyboard-selected) {
+  background-color: var(--color-lightblue) !important;
+  color: var(--color-white) !important;
+  border-radius: 50% !important;
+}
+.formWrapper :global(.react-datepicker__navigation-icon::before) {
+  border-color: var(--color-lightblue);
+}
+.sendBtn {
+  display: block;
+  margin: 0 auto;
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  width: 156px;
+  height: 44px;
+  background-color: var(--color-lightblue);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--color-white);
+  transition: background-color 250ms ease-in-out;
+}
+.sendBtn:hover,
+.sendBtn:focus,
+.sendBtn:active {
+  background-color: var(--color-blue);
+}
+.error {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.25;
+  color: var(--color-gray);
+  text-align: center;
+}
