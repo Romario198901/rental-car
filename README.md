@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Rental Car Catalog
+
+A modern rental car marketplace built with **Next.js 16**, **TypeScript**, and **React Query**.
+
+The app provides a searchable car catalog, detailed car pages, filter controls, and booking requests for rental vehicles.
+
+## Key Features
+
+- Catalog browsing with server-side data fetching
+- Brand, price, mileage filters and paginated car listings
+- Car detail pages with booking request support
+- Client and server API helpers using `axios`
+- Responsive UI components built with React and CSS modules
+
+## Technology Stack
+
+- `next` 16.2.6
+- `react` 19.2.4
+- `typescript` 5
+- `@tanstack/react-query` for data fetching and caching
+- `axios` for API requests
+- `formik` and `yup` for booking form validation
+- `react-hot-toast` for notifications
+- `react-select` for filter UI
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20+ recommended
+- npm
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+### Lint
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/` — Next.js App Router pages and API route handlers
+- `components/` — UI components for catalog, car details, filters, and booking
+- `lib/api/` — shared API helpers for client and server calls
+- `types/` — TypeScript models for cars, filters, and orders
+- `public/` — static assets
 
-## Deploy on Vercel
+## How it works
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `/` renders the home landing page
+- `/catalog` renders the car catalog with filtering and pagination
+- `/catalog/[carId]` renders detailed car information and booking form
+- API routes under `app/api/cars/` proxy requests to the backend service
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Open a pull request describing your change
+
+If this repository is used in a team, add a `CONTRIBUTING.md` file and link to it here.
+
+## Support
+
+If you have questions or issues, inspect the source in `app/`, `components/`, and `lib/`, or open an issue in the repository.

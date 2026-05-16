@@ -20,7 +20,7 @@ export default function CarDetailsDescription({
           <span className={css.partHead}>{car.brand}</span>{' '}
           <span className={css.partHead}>{car.model},</span>{' '}
           <span className={css.partHead}>{car.year}</span>{' '}
-          <span className={css.id}>{`id: ${car.id.slice(0, 4)}`}</span>
+          <span className={css.id}>{`id: ${car.stockNumber}`}</span>
         </h3>
         <p className={css.location}>
           <HiOutlineLocationMarker size={16} />

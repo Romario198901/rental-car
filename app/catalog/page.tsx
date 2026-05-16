@@ -7,10 +7,38 @@ import {
   HydrationBoundary,
   QueryClient,
 } from '@tanstack/react-query';
+import { Metadata } from 'next';
 
 interface CatalogPageProps {
   params: Promise<{ filters: Filters }>;
 }
+
+export const metadata: Metadata = {
+  title: 'Catalog of the | App RentalCar',
+  description:
+    'The app provides a searchable car catalog, detailed car pages, filter controls, and booking requests for rental vehicles.',
+  openGraph: {
+    title: 'Catalog of the | App RentalCar',
+    description:
+      'The app provides a searchable car catalog, detailed car pages, filter controls, and booking requests for rental vehicles.',
+    images: [
+      {
+        width: 1200,
+        height: 630,
+        url: 'https://res.cloudinary.com/djhsypsct/image/upload/v1778943276/HeroBackGround_2x_os6bbf.jpg',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Catalog of the | App RentalCar',
+    description:
+      'The app provides a searchable car catalog, detailed car pages, filter controls, and booking requests for rental vehicles.',
+    images: [
+      'https://res.cloudinary.com/djhsypsct/image/upload/v1778943276/HeroBackGround_2x_os6bbf.jpg',
+    ],
+  },
+};
 
 export default async function CatalogPage({ params }: CatalogPageProps) {
   const PER_PAGE = 12;
