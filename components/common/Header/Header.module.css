@@ -1,4 +1,5 @@
 .header {
+  width: 100%;
   border-bottom: 1px solid var(--color-crema);
   background-color: var(--color-crema);
 }
@@ -24,7 +25,7 @@
 }
 @media screen and (min-width: 1200px) {
   .header {
-    width: 1440px;
+    max-width: 1440px;
     margin: 0 auto;
   }
   .headerNav {

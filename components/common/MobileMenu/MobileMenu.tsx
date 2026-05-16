@@ -3,7 +3,7 @@ import Link from 'next/link';
 import css from './MobileMenu.module.css';
 import clsx from 'clsx';
 import Image from 'next/image';
-import { IoIosCloseCircleOutline } from 'react-icons/io';
+import { IoCloseOutline } from 'react-icons/io5';
 import { createPortal } from 'react-dom';
 
 interface MobileMenuProps {
@@ -24,7 +24,7 @@ export default function MobileMenu({ onClose }: MobileMenuProps) {
             />
           </Link>
           <button type="button" className={css.menuclose} onClick={onClose}>
-            <IoIosCloseCircleOutline size={16} />
+            <IoCloseOutline size={24} />
           </button>
         </div>
         <nav className={css.menunav}>

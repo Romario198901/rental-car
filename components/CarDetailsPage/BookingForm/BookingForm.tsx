@@ -67,7 +67,7 @@ export default function BookingForm({ isPending, onSubmit }: BookingFormProps) {
         onSubmit={handleSubmit}
         validationSchema={bookingValidationSchema}
       >
-        <Form className={css.form}>
+        <Form className={css.form} >
           <Field
             type="text"
             name="name"
@@ -88,7 +88,7 @@ export default function BookingForm({ isPending, onSubmit }: BookingFormProps) {
             as="textarea"
             type="text"
             name="comment"
-            id={`${fieldId}-name`}
+            id={`${fieldId}-comment`}
             className={css.textarea}
             placeholder="Comment"
           />

@@ -97,7 +97,6 @@ export default function FiltersForm({ onSubmitFilters }: FiltersFormProps) {
     actions.resetForm();
   };
 
-  
   if (isLoading) return <Loader />;
 
   return (
@@ -202,6 +201,13 @@ export default function FiltersForm({ onSubmitFilters }: FiltersFormProps) {
                   priceOptions.find(option => option.value === values.price) ||
                   null
                 }
+                formatOptionLabel={(option, { context }) => {
+                  if (context === 'value') {
+                    return `To $${option.value}`;
+                  }
+
+                  return option.label;
+                }}
                 onChange={option => {
                   setFieldValue('price', option?.value || '');
                 }}
