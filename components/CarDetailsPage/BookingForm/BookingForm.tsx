@@ -2,8 +2,6 @@
 import { useId } from 'react';
 import css from './BookingForm.module.css';
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import * as Yup from 'yup';
 import { Order } from '@/types/order';
 
@@ -15,13 +13,11 @@ interface BookingFormProps {
 interface FormValues {
   name: string;
   email: string;
-  bookingDate: Date | null;
   comment: string;
 }
 const initialValues: FormValues = {
   name: '',
   email: '',
-  bookingDate: null,
   comment: '',
 };
 const bookingValidationSchema = Yup.object({
@@ -36,20 +32,12 @@ const bookingValidationSchema = Yup.object({
     .min(3, 'Email should be at least 3 symbols')
     .max(100, 'Email should be maximum 100 symbols')
     .required('Please enter your email'),
-  bookingDate: Yup.date().nullable(),
   comment: Yup.string()
     .trim()
     .min(3, 'Comment should be at least 3 symbols')
     .max(1000, 'Too much symbols'),
 });
-const formatDateToBackend = (date: Date | null) => {
-  if (date === null) return;
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const year = date.getFullYear();
 
-  return `${day}.${month}.${year}`;
-};
 export default function BookingForm({ isPending, onSubmit }: BookingFormProps) {
   const fieldId = useId();
 
@@ -60,9 +48,6 @@ export default function BookingForm({ isPending, onSubmit }: BookingFormProps) {
     const order: Order = {
       name: values.name,
       email: values.email,
-      bookingDate: values.bookingDate
-        ? formatDateToBackend(values.bookingDate)
-        : undefined,
       comment: values.comment,
     };
 
@@ -82,50 +67,36 @@ export default function BookingForm({ isPending, onSubmit }: BookingFormProps) {
         onSubmit={handleSubmit}
         validationSchema={bookingValidationSchema}
       >
-        {({ values, setFieldValue }) => (
-          <Form className={css.form}>
-            <Field
-              type="text"
-              name="name"
-              id={`${fieldId}-name`}
-              className={css.input}
-              placeholder="Name*"
-            />
-            <ErrorMessage name="name" component="p" className={css.error} />
-            <Field
-              type="email"
-              name="email"
-              id={`${fieldId}-email`}
-              className={css.input}
-              placeholder="Email*"
-            />
-            <ErrorMessage name="email" component="p" className={css.error} />
-            <DatePicker
-              selected={values.bookingDate}
-              onChange={(bookingDate: Date | null) =>
-                setFieldValue('bookingDate', bookingDate)
-              }
-              dateFormat="dd.MM.yyyy"
-              placeholderText="Booking date"
-              className={css.input}
-              disabled={isPending}
-              minDate={new Date()}
-              name="bookingDate"
-            />
-            <Field
-              as="textarea"
-              type="text"
-              name="comment"
-              id={`${fieldId}-name`}
-              className={css.textarea}
-              placeholder="Comment"
-            />
-            <ErrorMessage name="comment" component="p" className={css.error} />
-            <button type="submit" className={css.sendBtn}>
-              Send
-            </button>
-          </Form>
-        )}
+        <Form className={css.form}>
+          <Field
+            type="text"
+            name="name"
+            id={`${fieldId}-name`}
+            className={css.input}
+            placeholder="Name*"
+          />
+          <ErrorMessage name="name" component="p" className={css.error} />
+          <Field
+            type="email"
+            name="email"
+            id={`${fieldId}-email`}
+            className={css.input}
+            placeholder="Email*"
+          />
+          <ErrorMessage name="email" component="p" className={css.error} />
+          <Field
+            as="textarea"
+            type="text"
+            name="comment"
+            id={`${fieldId}-name`}
+            className={css.textarea}
+            placeholder="Comment"
+          />
+          <ErrorMessage name="comment" component="p" className={css.error} />
+          <button type="submit" className={css.sendBtn} disabled={isPending}>
+            Send
+          </button>
+        </Form>
       </Formik>
     </div>
   );
