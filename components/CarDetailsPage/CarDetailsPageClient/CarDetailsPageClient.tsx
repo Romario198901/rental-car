@@ -32,7 +32,7 @@ export default function CarDetailsPageClient({
       createOrder(carId, order),
 
     onSuccess: () => {
-      toast.success('Thank tou! Your request was sucessfully created');
+      toast.success('Thank You! Your booking request was sucessfully created');
     },
 
     onError: () => {
