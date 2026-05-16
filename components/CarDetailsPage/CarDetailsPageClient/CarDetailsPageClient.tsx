@@ -9,6 +9,7 @@ import { Car } from '@/types/car';
 import BookingForm from '../BookingForm/BookingForm';
 import toast from 'react-hot-toast';
 import { Order } from '@/types/order';
+import { useEffect } from 'react';
 
 interface CarDetailsPageClientProps {
   carId: string;
@@ -47,8 +48,17 @@ export default function CarDetailsPageClient({
     });
   };
 
+  useEffect(() => {
+    if (isError) {
+      toast.error('Sorry something went wrong. Please try again');
+    }
+  }, [isError]);
+
+  if (isError) {
+    throw new Error('Failed to load car details');
+  }
+
   if (isLoading) return <Loader />;
-  if (isError) return null;
 
   return (
     <section className={css.carDetails}>

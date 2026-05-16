@@ -1,11 +1,12 @@
 'use client';
 import css from './CatalogPageClient.module.css';
 import FiltersForm from '../FiltersForm/FiltersForm';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { getAllCars } from '@/lib/api/clientApi';
 import Loader from '@/components/common/Loader/Loader';
 import CarsList from '../CarsList/CarsList';
+import toast from 'react-hot-toast';
 
 export interface Filters {
   brand?: string;
@@ -58,6 +59,17 @@ export default function CatalogPageClient() {
       maxMileage: values.maxMileage || undefined,
     });
   };
+
+  useEffect(() => {
+    if (isError) {
+      toast.error('Sorry something went wrong. Please try again');
+    }
+  }, [isError]);
+
+  if (isError) {
+    throw new Error('Failed to load cars');
+  }
+
   return (
     <section className={css.catalog}>
       <div className="container">
