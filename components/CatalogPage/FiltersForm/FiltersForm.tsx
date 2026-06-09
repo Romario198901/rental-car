@@ -94,7 +94,6 @@ export default function FiltersForm({ onSubmitFilters }: FiltersFormProps) {
       maxMileage: values.maxMileage || undefined,
     });
     actions.setSubmitting(false);
-    actions.resetForm();
   };
 
   if (isLoading) return <Loader />;

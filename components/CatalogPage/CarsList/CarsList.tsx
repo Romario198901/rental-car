@@ -2,20 +2,52 @@
 import { Car } from '@/types/car';
 import css from './CarsList.module.css';
 import Image from 'next/image';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import Link from 'next/link';
+import { useState } from 'react';
 
 interface CarsListProps {
   cars: Car[];
 }
 
 export default function CarsList({ cars }: CarsListProps) {
+ const [favorites, setFavorites] = useState<string[]>(() => {
+  if (typeof window === 'undefined') return [];
+
+  const stored = localStorage.getItem('favoriteCars');
+
+  return stored ? JSON.parse(stored) : [];
+});
+
+const toggleFavorite = (carId: string) => {
+  setFavorites(prev => {
+    const updated = prev.includes(carId)
+      ? prev.filter(id => id !== carId)
+      : [...prev, carId];
+
+    localStorage.setItem('favoriteCars', JSON.stringify(updated));
+
+    return updated;
+  });
+};
+
   return (
     <ul className={css.list}>
       {cars.map(car => (
         <li key={car.id} className={css.card}>
           <div className={css.imageWrapper}>
-            <AiOutlineHeart size={16} className={css.icon} />
+           <button
+  type="button"
+  className={css.favoriteBtn}
+  onClick={() => toggleFavorite(car.id)}
+  aria-label="Add to favorites"
+>
+  {favorites.includes(car.id) ? (
+    <AiFillHeart size={16} className={css.icon} />
+  ) : (
+    <AiOutlineHeart size={16} className={css.icon} />
+  )}
+</button>
             <Image
               width={276}
               height={268}
@@ -27,11 +59,11 @@ export default function CarsList({ cars }: CarsListProps) {
           </div>
           <div className={css.cardDescr}>
             <div className={css.firstRow}>
-              <p className={css.description}>
+              <h3 className={css.description}>
                 {car.brand}{' '}
                 <span className={css.descriptionblue}>{car.model},</span>{' '}
                 {car.year}
-              </p>
+              </h3>
               <p className={css.price}>$ {car.rentalPrice}</p>
             </div>
             <p className={css.secondRow}>

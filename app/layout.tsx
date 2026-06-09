@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: 'RentalCar',
   description:
     'The app provides a searchable car catalog, detailed car pages, filter controls, and booking requests for rental vehicles.',
+  icons: {
+    icon: '/favicon.svg',
+  },
   openGraph: {
     title: 'RentalCar',
     description:

@@ -48,6 +48,15 @@
   line-height: 1.25;
   color: var(--color-black);
 }
+.inputWrapper::after {
+  content: 'km';
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #101828;
+  font-weight: 500;
+}
 .input {
   width: 100%;
   outline: none;

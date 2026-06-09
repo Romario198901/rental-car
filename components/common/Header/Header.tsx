@@ -13,7 +13,7 @@ export default function Header() {
   const pathname = usePathname();
   return (
     <header className={css.header}>
-      <div className="container">
+    
         <div className={css.headerContainer}>
           <Link href="/" className={css.logo}>
             <Image
@@ -49,7 +49,6 @@ export default function Header() {
             <CiMenuBurger size={24} className={css.icon} />
           </button>
         </div>
-      </div>
       {mobileMenuOpen && (
         <MobileMenu onClose={() => setMobileMenuOpen(false)} />
       )}

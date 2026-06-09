@@ -15,17 +15,22 @@
   position: relative;
   margin-bottom: 16px;
 }
-.icon {
-  position: absolute;
+.favoriteBtn {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+position: absolute;
   top: 16px;
   right: 16px;
+}
+.icon {
   fill: var(--color-crema);
   transition: fill 250ms ease-in-out;
   cursor: pointer;
 }
-.icon:hover,
-.icon:focus,
-.icon:active {
+.favoriteBtn:hover,
+.favoriteBtn:focus,
+.favoriteBtn:active> .icon{
   fill: var(--color-ligtblue);
 }
 .image {
