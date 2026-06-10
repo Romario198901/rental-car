@@ -1,10 +1,14 @@
 # Rental Car Catalog
 
+
+
 A modern rental car marketplace built with **Next.js 16**, **TypeScript**, and **React Query**.
 
 The app provides a searchable car catalog, detailed car pages, filter controls, and booking requests for rental vehicles.
 
 ## Key Features
+
+
 
 - Catalog browsing with server-side data fetching
 - Brand, price, mileage filters and paginated car listings
